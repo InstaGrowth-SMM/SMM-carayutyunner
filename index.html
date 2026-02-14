@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaGrowth | Instagram SMM Ծառայություններ</title>
+    <meta name="description" content="Instagram Business Development - Պրոֆեսիոնալ ռիլիներ, վիզուալներ և ամբողջական SMM ծառայություններ">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --sage: #8B9D83;
+            --sage-dark: #6B7D63;
+            --white: #FFFFFF;
+            --off-white: #F8F9F7;
+            --text: #2C3326;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.2rem 5%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(139, 157, 131, 0.15);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--sage-dark);
+        }
+        
+        .logo span { color: var(--sage); font-style: italic; }
+        
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover { color: var(--sage); }
+        
+        .contact-btn {
+            padding: 0.8rem 1.8rem;
+            background: var(--sage);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 5% 6rem;
+            background: linear-gradient(135deg, var(--off-white) 0%, var(--white) 100%);
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 span {
+            color: var(--sage);
+            font-style: italic;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #5A6052;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--sage);
+            border: 2px solid var(--sage);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--sage-dark);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--sage);
+            color: var(--sage-dark);
+        }
+        
+        .btn-outline:hover {
+            background: var(--sage);
+            color: white;
+        }
+        
+        .mockup {
+            width: 100%;
+            max-width: 350px;
+            aspect-ratio: 9/16;
+            background: linear-gradient(135deg, #A8B89F, var(--sage));
+            border-radius: 30px;
+            padding: 2rem;
+            box-shadow: 0 30px 80px rgba(139, 157, 131, 0.25);
+            color: white;
+            margin: 0 auto;
+        }
+        
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .mockup-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .mockup-content {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            min-height: 250px;
+        }
+        
+        .mockup-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        section {
+            padding: 5rem 5%;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--sage);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 25px;
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            border: 2px solid rgba(139, 157, 131, 0.15);
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            border-color: var(--sage);
+            box-shadow: 0 20px 50px rgba(139, 157, 131, 0.15);
+            transform: translateY(-5px);
+        }
+        
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #5A6052;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #5A6052;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: 700;
+        }
+        
+        .price-box {
+            text-align: center;
+            padding: 2rem;
+            background: var(--off-white);
+            border-radius: 20px;
+        }
+        
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--sage-dark);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price span { font-size: 1.3rem; }
+        
+        .price-label {
+            color: #5A6052;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--sage);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .price-btn:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+        }
+        
+        .featured {
+            background: linear-gradient(135deg, var(--sage), var(--sage-dark));
+            color: white;
+        }
+        
+        .featured h3,
+        .featured p,
+        .featured .service-features li {
+            color: white;
+        }
+        
+        .featured .price-box {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .featured .price {
+            color: white;
+        }
+        
+        .featured .price-label {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .featured .price-btn {
+            background: white;
+            color: var(--sage-dark);
+        }
+        
+        .badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        .cta {
+            background: var(--sage);
+            color: white;
+            text-align: center;
+            padding: 6rem 5%;
+        }
+        
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            padding: 4rem 5% 2rem;
+            background: var(--white);
+            border-top: 1px solid rgba(139, 157, 131, 0.15);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--sage-dark);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: #5A6052;
+            text-decoration: none;
+            line-height: 2;
+        }
+        
+        .footer-section a:hover {
+            color: var(--sage);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 157, 131, 0.15);
+            color: #5A6052;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .service-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Insta<span>Growth</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Ծառայություններ</a></li>
+                <li><a href="#contact">Կապ</a></li>
+            </ul>
+            <button class="contact-btn" onclick="window.open('https://www.instagram.com/anahit_.araqelyan', '_blank')">Կապվել</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div>
+                <h1>Աճեցրեք Ձեր <span>Instagram</span> Բիզնեսը</h1>
+                <p>Պրոֆեսիոնալ բովանդակություն և ռազմավարություն՝ ձեր բիզնեսի տեսանելիության և վաճառքի բարձրացման համար։</p>
+                <div class="hero-buttons">
+                    <a href="https://www.instagram.com/anahit_.araqelyan" target="_blank" class="btn btn-primary">Սկսել Հիմա</a>
+                    <a href="#services" class="btn btn-outline">Իմանալ Ավելին</a>
+                </div>
+            </div>
+            <div>
+                <div class="mockup">
+                    <div class="mockup-header">
+                        <div class="mockup-avatar"></div>
+                        <div>
+                            <strong>Ձեր Բիզնեսը</strong>
+                            <div style="opacity: 0.8; font-size: 0.85rem;">Հետևորդներ +250%</div>
+                        </div>
+                    </div>
+                    <div class="mockup-content"></div>
+                    <div class="mockup-stats">
+                        <div>
+                            <span class="stat-number">15K</span>
+                            <span class="stat-label">Հետևորդներ</span>
+                        </div>
+                        <div>
+                            <span class="stat-number">2.5K</span>
+                            <span class="stat-label">Reach</span>
+                        </div>
+                        <div>
+                            <span class="stat-number">8.2%</span>
+                            <span class="stat-label">Engagement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: var(--off-white);">
+        <div class="section-header">
+            <div class="section-label">Մեր Ծառայությունները</div>
+            <h2 class="section-title">Ընտրեք Ձեր Լուծումը</h2>
+            <p style="color: #5A6052;">Ճկուն ծառայություններ՝ համապատասխան յուրաքանչյուր բիզնեսի կարիքներին։</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div>
+                    <h3>Ռիլի Նկարահանում</h3>
+                    <p>Պրոֆեսիոնալ Instagram Reels՝ բարձր engagement-ով և վիրալային ներուժով։</p>
+                    <ul class="service-features">
+                        <li>Կոնցեպտի մշակում</li>
+                        <li>Պրոֆեսիոնալ նկարահանում</li>
+                        <li>Մոնտաժ և էֆեկտներ</li>
+                        <li>Տրենդային երաժշտություն</li>
+                    </ul>
+                </div>
+                <div class="price-box">
+                    <div class="price">10,000<span>֏</span></div>
+                    <div class="price-label">մեկ ռիլի</div>
+                    <button class="price-btn" onclick="window.open('https://www.instagram.com/anahit_.araqelyan', '_blank')">Պատվիրել</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <h3>Վիզուալների Պատրաստում</h3>
+                    <p>Գրավիչ գրաֆիկական դիզայն՝ feed-ի, stories-ի և պոստերի համար։</p>
+                    <ul class="service-features">
+                        <li>Անհատական դիզայն</li>
+                        <li>Բրենդային ոճ</li>
+                        <li>Տեքստային ձևավորում</li>
+                        <li>Անսահմանափակ ուղղումներ</li>
+                    </ul>
+                </div>
+                <div class="price-box">
+                    <div class="price">1,000<span>֏</span></div>
+                    <div class="price-label">մեկ վիզուալ</div>
+                    <button class="price-btn" onclick="window.open('https://www.instagram.com/anahit_.araqelyan', '_blank')">Պատվիրել</button>
+                </div>
+            </div>
+
+            <div class="service-card featured">
+                <div>
+                    <div class="badge">ԱՄԵՆԱՀԱՅՏՆԻ ՓԱԹԵԹ</div>
+                    <h3>Ամբողջական SMM Ծառայություն</h3>
+                    <p>Լրիվ փաթեթ՝ Instagram հաշվի կառավարում, բովանդակության ստեղծում և business development։</p>
+                    <ul class="service-features">
+                        <li>30+ պոստ և ռիլ ամսական</li>
+                        <li>Ամենօրյա stories</li>
+                        <li>Հաշվի ամբողջական կառավարում</li>
+                        <li>Ռազմավարական պլանավորում</li>
+                        <li>Ամսական հաշվետվություններ</li>
+                    </ul>
+                </div>
+                <div class="price-box">
+                    <div class="price">85,000<span>֏</span></div>
+                    <div class="price-label">ամսական</div>
+                    <button class="price-btn" onclick="window.open('https://www.instagram.com/anahit_.araqelyan', '_blank')">Սկսել Հիմա</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Պատրա՞ստ Եք Աճեցնել Ձեր Instagram-ը</h2>
+        <p>Կապվեք մեզ հետ այսօր և ստացեք անվճար խորհրդատվություն ու անհատական ռազմավարություն։</p>
+        <a href="https://www.instagram.com/anahit_.araqelyan" target="_blank" class="btn btn-outline" style="border-color: white; color: white;">Անվճար Խորհրդատվություն</a>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>InstaGrowth</h4>
+                <p>Instagram Business Development մասնագիտացված ծառայություններ։ Օգնում ենք բիզնեսներին աճել սոցիալական ցանցերում։</p>
+            </div>
+            <div class="footer-section">
+                <h4>Ծառայություններ</h4>
+                <p>Ռիլի Նկարահանում</p>
+                <p>Վիզուալների Պատրաստում</p>
+                <p>Ամբողջական SMM</p>
+            </div>
+            <div class="footer-section">
+                <h4>Կապ</h4>
+                <p>Հեռ: <a href="tel:+37494833949">+374 94 833949</a></p>
+                <p>Email: <a href="mailto:aanahit580@gmail.com">aanahit580@gmail.com</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/anahit_.araqelyan" target="_blank">@anahit_.araqelyan</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 InstaGrowth. Բոլոր իրավունքները պաշտպանված են։</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(139, 157, 131, 0.1)';
+            } else {
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
